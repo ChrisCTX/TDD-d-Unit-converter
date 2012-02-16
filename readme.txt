@@ -1,1 +1,1 @@
-First commit from TortoiseGit
+This program is an excercise in Test Driven Design.
