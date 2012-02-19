@@ -1,29 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Linq;
-using System.Text;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace convert
 {
     public class Ratios
     {
-        Hashtable Values = new Hashtable(); // Main Hashtable to be accessed
+        // Main Dictionary to be accessed
+        Dictionary<string, Dictionary<string, double>> Values = new Dictionary<string, Dictionary<string, double>>(); 
         public Ratios()
         {
             // Lenght
-            Hashtable Kilometers = new Hashtable();
-            Hashtable Meters = new Hashtable();
-            Hashtable Centimeters = new Hashtable();
-            Hashtable Milimeters = new Hashtable();
+            Dictionary<string, double> Kilometers = new Dictionary<string, double>();
+            Dictionary<string, double> Meters = new Dictionary<string, double>();
+            Dictionary<string, double> Centimeters = new Dictionary<string, double>();
+            Dictionary<string, double> Milimeters = new Dictionary<string, double>();
 
             // Volume
-            Hashtable Liters = new Hashtable();
-            Hashtable Mililiters = new Hashtable();
+            Dictionary<string, double> Liters = new Dictionary<string, double>();
+            Dictionary<string, double> Mililiters = new Dictionary<string, double>();
 
             // Mass/Weight
-            Hashtable Kilogram = new Hashtable();
-            Hashtable Grams = new Hashtable();
-            Hashtable Miligrams = new Hashtable();
+            Dictionary<string, double> Kilogram = new Dictionary<string, double>();
+            Dictionary<string, double> Grams = new Dictionary<string, double>();
+            Dictionary<string, double> Miligrams = new Dictionary<string, double>();
 
             Kilometers.Add("Miles", 0.62);
             Kilometers.Add("Feet", 3280.8);
@@ -31,17 +30,16 @@ namespace convert
             Centimeters.Add("Inches", 0.39);
             Milimeters.Add("Inches", 0.039);
 
+            // Adding Specific Hashtables to the General one
             Values.Add("Kilometers", Kilometers);
             Values.Add("Meters", Meters);
             Values.Add("Centimeters", Centimeters);
             Values.Add("Milimeters", Milimeters);
         }
 
-        public double GetRatio(string from, string to)
+        public double GetRatio(string From, string To)
         {
-            Hashtable FromTable = Values[from] as Hashtable;
-            double Ratio = (double)FromTable[to];
-            return Ratio;
+            return Values[From][To];
         }
     }
 }
