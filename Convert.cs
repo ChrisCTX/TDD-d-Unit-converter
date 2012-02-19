@@ -13,7 +13,8 @@ namespace convert
 
         public double ImperialToMetric(string From, string To, double Value)
         {
-            double Ratio = Ratios.GetRatio(From, To);
+            // Little Switcheroo here reduces the need to have specific ratios for Imperial to Metric
+            double Ratio = Ratios.GetRatio(To, From);
             return Value / Ratio;
         }
     }
