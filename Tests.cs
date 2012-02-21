@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace convert
+namespace UnitConverter
 {
     class Tests
     {
@@ -39,6 +42,13 @@ namespace convert
                 Console.Write("Test 4: FAILURE!\n");
         }
 
-       
+        public void test5()
+        {
+            // Back and Forth testing
+            if (Convert.MetricToImperial("Kilometers", "Feet", Convert.ImperialToMetric("Feet", "Kilometers", 1337)) == 1337)
+                Console.Write("Test 5: SUCCESS!\n");
+            else
+                Console.Write("Test 5: FAILURE!\n");
+        }
     }
 }
